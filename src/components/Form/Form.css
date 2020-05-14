@@ -1,0 +1,28 @@
+.form-group {
+  display: flex;
+}
+.new-task {
+  display: block;
+  width: 100%;
+  padding: 0.25em 0.75em;
+  background-color: transparent;
+  border: 1px solid currentColor;
+  border-radius: 0.25em;
+  color: inherit;
+  transition: border-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+.new-task::placeholder {
+  opacity: 0.85;
+}
+.new-task:focus {
+  border-color: var(--clr-primary);
+  outline: 0;
+  box-shadow: 0 0 0 0.2em rgba(0, 123, 255, 0.25);
+}
+.new-task:focus::placeholder {
+  opacity: 0.5;
+}
+.form-group > .btn-task-create {
+  margin-right: 0.25em;
+  order: -1;
+}

@@ -1,0 +1,89 @@
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1.5em;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.task-item + .task-item {
+  border-top-width: 0;
+}
+input[type="checkbox"] {
+  appearance: none;
+  position: absolute;
+}
+.custom-control-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.custom-control-label .custom-checkbox {
+  margin-right: var(--size);
+}
+.custom-checkbox {
+  --size: 1em;
+  /* position: absolute; */
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  background-color: #fff;
+  border: 2px solid transparent;
+  border-color: currentColor;
+  border-radius: 50%;
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out,
+    box-shadow 150ms ease-in-out;
+  cursor: pointer;
+}
+.custom-control-label:hover .custom-checkbox {
+  border-color: var(--clr-primary);
+}
+input[type="checkbox"]:checked + .custom-control-label .custom-checkbox {
+  background-color: var(--clr-primary);
+  border-color: var(--clr-primary);
+  box-shadow: inset 0 0 0 2px #fff;
+}
+input[type="checkbox"]:focus + .custom-control-label .custom-checkbox {
+  box-shadow: 0 0 0 0.2em rgba(0, 123, 255, 0.25);
+  border-color: var(--clr-primary);
+}
+input[type="checkbox"]:checked:focus + .custom-control-label .custom-checkbox {
+  box-shadow: inset 0 0 0 2px #fff, 0 0 0 0.2em rgba(0, 123, 255, 0.25);
+}
+input[type="checkbox"]:disabled + .custom-control-label .custom-checkbox {
+  background-color: #e9ecef;
+  border-color: #bbc1e1;
+}
+input[type="checkbox"]:checked:disabled
+  + .custom-control-label
+  .custom-checkbox {
+  background-color: #bbc1e1;
+}
+.custom-control-label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 2em;
+  right: 0;
+  height: 0.125em;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 150ms ease-in-out;
+}
+input[type="checkbox"]:checked + .custom-control-label::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.custom-control-label > .task-item__date {
+  margin-left: 2em;
+}
+.task-item > .btn-task-delete {
+  margin-left: auto;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
